@@ -1,4 +1,4 @@
-const TrainingSession = require('../models/trainingSession');
+const TrainingSession = require('../models/trainingSessionModel');
 
 // Controller methods for handling training session-related operations
 

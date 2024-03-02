@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/userModel');
 
 // Controller methods for handling user-related operations
 
@@ -70,13 +70,17 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        if (user) {
-            await user.remove();
-            res.json({ message: 'User deleted' });
-        } else {
-            res.status(404).json({ message: 'User not found' });
+        if (!user) {
+            console.log('User not found:', req.params.id);
+            return res.status(404).json({ message: 'User not found' });
         }
+        
+        await user.deleteOne();
+        console.log('User deleted:', user);
+        res.json({ message: 'User deleted successfully' });
     } catch (err) {
+        console.error('Error deleting user:', err);
         res.status(500).json({ message: err.message });
     }
 };
+

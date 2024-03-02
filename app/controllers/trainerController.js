@@ -1,4 +1,4 @@
-const Trainer = require('../models/trainer');
+const Trainer = require('../models/trainerModel');
 
 // Controller methods for handling trainer-related operations
 

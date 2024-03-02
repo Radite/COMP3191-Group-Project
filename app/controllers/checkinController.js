@@ -1,4 +1,4 @@
-const Checkin = require('../models/checkin');
+const Checkin = require('../models/checkinModel');
 
 // Controller methods for handling check-in/check-out-related operations
 

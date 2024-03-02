@@ -1,4 +1,4 @@
-const ExerciseLibrary = require('../models/exerciseLibrary');
+const ExerciseLibrary = require('../models/exerciseLibraryModel');
 
 // Controller methods for handling exercise library-related operations
 

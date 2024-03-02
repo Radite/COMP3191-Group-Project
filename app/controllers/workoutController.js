@@ -1,4 +1,4 @@
-const Workout = require('../models/workout');
+const Workout = require('../models/workoutModel');
 
 // Controller methods for handling workout-related operations
 
