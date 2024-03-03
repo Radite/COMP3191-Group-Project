@@ -65,8 +65,8 @@ exports.deleteExercise = async (req, res) => {
     try {
         const exercise = await ExerciseLibrary.findById(req.params.id);
         if (exercise) {
-            await exercise.remove();
-            res.json({ message: 'Exercise deleted' });
+            await exercise.deleteOne();
+            res.json({ message: 'Exercise deleted successfully' });
         } else {
             res.status(404).json({ message: 'Exercise not found' });
         }

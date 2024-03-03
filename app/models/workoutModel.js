@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Define the schema for a set
 const setSchema = new mongoose.Schema({
   reps: {
     type: Number,
@@ -11,6 +12,7 @@ const setSchema = new mongoose.Schema({
   }
 });
 
+// Define the schema for an exercise
 const exerciseSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,6 +21,7 @@ const exerciseSchema = new mongoose.Schema({
   sets: [setSchema]
 });
 
+// Define the schema for a workout
 const workoutSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -33,6 +36,7 @@ const workoutSchema = new mongoose.Schema({
   exercises: [exerciseSchema]
 });
 
+// Create the model from the schema and export it
 const Workout = mongoose.model('Workout', workoutSchema);
 
 module.exports = Workout;

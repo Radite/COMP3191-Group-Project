@@ -29,17 +29,18 @@ exports.getCheckinById = async (req, res) => {
 // Create a new check-in
 exports.createCheckin = async (req, res) => {
     const checkin = new Checkin({
-        user_id: req.body.user_id,
-        checkin_time: req.body.checkin_time
+      user_id: req.body.user_id,
+      checkin_time: req.body.checkin_time,
+      checkout_time: req.body.checkout_time, 
+      expiration_time: req.body.expiration_time 
     });
     try {
-        const newCheckin = await checkin.save();
-        res.status(201).json(newCheckin);
+      const newCheckin = await checkin.save();
+      res.status(201).json(newCheckin);
     } catch (err) {
-        res.status(400).json({ message: err.message });
+      res.status(400).json({ message: err.message });
     }
-};
-
+  };
 // Update a check-in by ID
 exports.updateCheckin = async (req, res) => {
     try {
@@ -62,8 +63,8 @@ exports.deleteCheckin = async (req, res) => {
     try {
         const checkin = await Checkin.findById(req.params.id);
         if (checkin) {
-            await checkin.remove();
-            res.json({ message: 'Check-in deleted' });
+            await checkin.deleteOne();
+            res.json({ message: 'Checkin deleted successfully' });
         } else {
             res.status(404).json({ message: 'Check-in not found' });
         }

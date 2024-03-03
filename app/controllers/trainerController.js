@@ -65,7 +65,7 @@ exports.deleteTrainer = async (req, res) => {
     try {
         const trainer = await Trainer.findById(req.params.id);
         if (trainer) {
-            await trainer.remove();
+            await trainer.deleteOne();
             res.json({ message: 'Trainer deleted' });
         } else {
             res.status(404).json({ message: 'Trainer not found' });

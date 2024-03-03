@@ -29,7 +29,7 @@ exports.getWorkoutById = async (req, res) => {
 // Create a new workout
 exports.createWorkout = async (req, res) => {
     const workout = new Workout({
-        user_id: req.body.user_id,
+        user: req.body.user_id,
         date: req.body.date,
         exercises: req.body.exercises
     });
@@ -65,8 +65,8 @@ exports.deleteWorkout = async (req, res) => {
     try {
         const workout = await Workout.findById(req.params.id);
         if (workout) {
-            await workout.remove();
-            res.json({ message: 'Workout deleted' });
+            await workout.deleteOne();
+            res.json({ message: 'Workout deleted successfully' });
         } else {
             res.status(404).json({ message: 'Workout not found' });
         }

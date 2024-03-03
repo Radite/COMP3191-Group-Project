@@ -65,8 +65,8 @@ exports.deleteTrainingSession = async (req, res) => {
     try {
         const session = await TrainingSession.findById(req.params.id);
         if (session) {
-            await session.remove();
-            res.json({ message: 'Training session deleted' });
+            await session.deleteOne();
+            res.json({ message: 'Training session deleted successfully' });
         } else {
             res.status(404).json({ message: 'Training session not found' });
         }

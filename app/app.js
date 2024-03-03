@@ -23,10 +23,10 @@ mongoose.connect('mongodb://0.0.0.0:27017/testdb', {
 // Routes setup
 app.use('/api/users', userRoutes);
 app.use('/api/trainers', trainerRoutes);
-app.use('/api/training-sessions', trainingSessionRoutes);
+app.use('/api/trainingsessions', trainingSessionRoutes);
 app.use('/api/checkins', checkinRoutes);
 app.use('/api/workouts', workoutRoutes);
-app.use('/api/exercise-library', exerciseLibraryRoutes);
+app.use('/api/exerciseLibrary', exerciseLibraryRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
